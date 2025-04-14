@@ -17,7 +17,7 @@ const Navigation = () => {
   return (
     <>
     {/* header part */}
-    <div className='container flex justify-between py-3'>
+    <div className='container hidden md:flex justify-between py-3'>
      <div>
       <ul className='flex text-xs text-primary'>
         <li className='border-r text-xs px-1'>About Us</li>
@@ -51,10 +51,10 @@ const Navigation = () => {
     </div>
     {/* header part */}
     {/* body part */}
-    <div className='container flex my-9 w'>
+    <div className='container flex my-9'>
       <div className='flex gap-16'>
       <div>
-        <img src="public/logo.png" alt="logo" />
+        <img src="public/logo.png" alt="logo" className='cursor-pointer'/>
       </div>
       <div className='border py-4 px-5 border-brand flex gap-4'>
         <div className='w-10% border-r'>
@@ -101,7 +101,7 @@ const Navigation = () => {
     {/* footer part */}
     <nav>
       <div className='container flex items-center gap-9'>
-      <div className='px-3 py-5 border border-brand rounded-sm flex gap-2 items-center bg-brand text-secondary relative'>
+      <div className='px-3 py-5 border border-brand rounded-sm flex gap-2 items-center bg-brand text-white relative'>
         <p className='text-lg cursor-pointer'><LuBoxes /></p>
         <h3
         onClick={()=>setShow(!show)}
@@ -194,7 +194,6 @@ const Navigation = () => {
       </div>
       </div>
     </nav>
-
     {/* footer part */}
     </>
   )
