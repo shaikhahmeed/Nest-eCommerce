@@ -68,7 +68,7 @@ const Navigation = () => {
           </select>
         </div>
         <div className='w-90% flex gap-96 justify-between border border-brand text-xs'>
-          <input type="text" placeholder='Search for items...' />
+          <input type="text" placeholder='Search for items...' className='outline-0' />
           <button className='cursor-pointer'><FaSearch /></button>
         </div>
       </div>
