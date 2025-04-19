@@ -57,7 +57,7 @@ const Navigation = () => {
         <img src="public/logo.png" alt="logo" className='cursor-pointer'/>
       </div>
       <div className='border py-4 px-5 border-brand flex gap-4'>
-        <div className='w-10% border-r'>
+        <div className='w-10% border-r border-amber-200'>
           <select className='cursor-pointer text-sm font-bold' name="" id="">
             <option value="">All Categories</option>
             <option value="">All Categories</option>
@@ -101,7 +101,7 @@ const Navigation = () => {
     {/* footer part */}
     <nav>
       <div className='container flex items-center gap-9'>
-      <div className='px-3 py-5 border border-brand rounded-sm flex gap-2 items-center bg-brand text-white relative'>
+      <div className='px-3 py-5 border border-brand rounded-sm flex gap-2 items-center bg-brand text-white relative z-50'>
         <p className='text-lg cursor-pointer'><LuBoxes /></p>
         <h3
         onClick={()=>setShow(!show)}
@@ -109,7 +109,7 @@ const Navigation = () => {
         </h3>
         {
           show && (
-        <div className='w-md py-10 px-9 rounded-md absolute top-28 left-0 border-2 border-brand grid grid-cols-2 gap-6'>
+        <div className='w-md py-10 px-9 rounded-md absolute bg-amber-50 top-28 left-0 border-2 border-brand grid grid-cols-2 gap-6'>
           <div className='flex items-center gap-2 px-3 py-2 shadow cursor-pointer'>
             <img src="public/category-1.svg" alt="category-1" className='w-6'/>
             <p className='text-primary text-sm font-bold'>Milk and Dairies</p>
