@@ -158,16 +158,16 @@ const Navigation = () => {
       <div>
         <ul className='flex gap-8 text-lg text-primary font-'>
           <li>
-            <Link to="/" className='hover:text-brand transition'>Deals</Link>
+            <Link className='hover:text-brand transition'>Deals</Link>
           </li>
           <li>
-            <Link  className='hover:text-brand transition'>Home </Link>
+            <Link to="/home"  className='hover:text-brand transition'>Home </Link>
           </li>
           <li>
             <Link className='hover:text-brand transition'>About</Link>
           </li>
           <li>
-            <Link className='hover:text-brand transition'>Shop</Link>
+            <Link to="/shop" className='hover:text-brand transition'>Shop</Link>
           </li>
           <li>
             <Link className='hover:text-brand transition'>Mega menu</Link>
