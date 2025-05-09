@@ -1,5 +1,4 @@
 import React from 'react'
-import { Link } from 'react-router'
 import ProductItem from '../utls/ProductItem'
 
 const PopularProduct = () => {
@@ -9,32 +8,41 @@ const PopularProduct = () => {
             <div className='pt-12 flex justify-between items-center'>
                 <h2 className='text-3xl font-bold text-primary'>Popular Products</h2>
                 <div>
-                <ul className='flex gap-4 text-base text-primary font-light'>
+                <ul className='flex gap-4 text-base text-primary font-light cursor-pointer'>
                  <li>
-                    <Link to="/" className='hover:text-brand'>All</Link>
-                 </li>
-                 <li>
-                    <Link to="/" className='hover:text-brand'>Milks & Dairies</Link>
+                    <button className='hover:text-brand'>All</button>
                  </li>
                  <li>
-                    <Link to="/" className='hover:text-brand'>Coffes & Teas</Link>
+                    <button className='hover:text-brand'>Milks & Dairies</button>
+                 </li>
+                 <li>
+                    <button className='hover:text-brand'>Coffes & Teas</button>
                  </li>
                  <li> 
-                    <Link to="/" className='hover:text-brand'>Pet Foods </Link>
+                    <button className='hover:text-brand'>Pet Foods </button>
                  </li>
                  <li> 
-                    <Link to="/" className='hover:text-brand'>Meats</Link>
+                    <button className='hover:text-brand'>Meats</button>
                  </li>
                  <li> 
-                    <Link to="/" className='hover:text-brand'>Vegetables</Link>
+                    <button className='hover:text-brand'>Vegetables</button>
                  </li>
                  <li> 
-                    <Link to="/" className='hover:text-brand'>Fruits</Link>
+                    <button className='hover:text-brand'>Fruits</button>
                  </li>
                 </ul>
                 </div>
             </div>
-            <div className='pt-11 pb-12'>
+            <div className='pt-11 pb-12 grid grid-cols-5 gap-6'>
+                <ProductItem/>
+                <ProductItem/>
+                <ProductItem/>
+                <ProductItem/>
+                <ProductItem/>
+                <ProductItem/>
+                <ProductItem/>
+                <ProductItem/>
+                <ProductItem/>
                 <ProductItem/>
             </div>
         </div>

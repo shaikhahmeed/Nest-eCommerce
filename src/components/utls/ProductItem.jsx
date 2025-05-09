@@ -1,9 +1,47 @@
 import React from 'react'
+import { CiShoppingCart } from 'react-icons/ci'
+import { FaStar } from 'react-icons/fa'
 
 const ProductItem = () => {
   return (
-    <div>ProductItem</div>
+    <div className='border-2 rounded-2xl border-[#ECECEC] w-fit'>
+      <div className='px-5 py-2.5 bg-[#F74B81] w-fit rounded-tl-2xl rounded-br-3xl'>
+        <p>Hot</p>
+      </div>
+      <div className='p-6'>
+      <div className='w-full'>
+        <img src="/productItem.png" alt="" />
+      </div>
+      <div>
+        <p className='font-medium text-xs text-secondary'>Snack</p>
+        <h3 className='pt-2.5 font-bold text-base text-primary max-w-52'>Seeds of Change Organic
+        Quinoa, Brown, & Red Rice</h3>
+        <ul className='flex gap-12 items-center pt-2.5'>
+          <li>
+            <p className='text-amber-400 '><FaStar/></p>
+          </li>
+          <li>
+            <p>(4)</p>
+          </li>
+        </ul>
+        <p className='font-medium text-sm text-secondary'>By <span className='text-brand'>NestFood</span></p>
+        <div className='flex justify-between items-center'>
+          <div className='flex gap-2.5 items-end'>
+            <p className='font-bold text-lg text-brand'>$28.85</p>
+            <p className='font-bold text-sm text-secondary line-through'>$32.8</p>
+          </div>
+          <div>
+            <button className='px-5 py-2.5 flex cursor-pointer items-center font-bold text-brand gap-1.5 rounded-sm bg-[#DEF9EC]'>
+              <p className='text-2xl'><CiShoppingCart/></p>
+              <p className='text-sm'>Add</p>
+            </button>
+          </div>
+        </div>
+      </div>
+      </div>
+    </div>
   )
 }
 
 export default ProductItem
+
