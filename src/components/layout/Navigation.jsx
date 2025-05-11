@@ -20,12 +20,12 @@ const Navigation = () => {
     <>
     {/* header part */}
     <header className='relative'>
-    <div className='container hidden xl:flex justify-between py-3'>
+    <div className='container hidden xl:flex justify-between py-3 border-b border-b-[#ECECEC]'>
      <div>
       <ul className='flex text-xs text-primary'>
-        <li className='border-r text-xs px-1'>About Us</li>
-        <li className='border-r text-xs px-1'>My Account</li>
-        <li className='border-r text-xs px-1'>Wishlist</li>
+        <li className='border-r border-r-[#ECECEC] text-xs px-1'>About Us</li>
+        <li className='border-r border-r-[#ECECEC] text-xs px-1'>My Account</li>
+        <li className='border-r border-r-[#ECECEC] text-xs px-1'>Wishlist</li>
         <li className='px-1'>Order Tracking</li>
       </ul>
      </div>
@@ -39,11 +39,11 @@ const Navigation = () => {
      </div>
      <div>
         <ul className='flex '>
-          <li className='flex border-r px-1 text-xs'>
+          <li className='flex border-r border-r-[#ECECEC] px-1 text-xs'>
           <a href="#" className='text-primary text-xs'>Need help?</a>
           <p className='text-xs text-primary'>Call Us: <span className='text-green-500'>+ 88001 900</span></p>
           </li>
-          <li className='border-r px-1 text-xs text-primary'>
+          <li className='border-r border-r-[#ECECEC] px-1 text-xs text-primary'>
           English 
           </li>
           <li className='text-xs text-primary'>
@@ -54,7 +54,7 @@ const Navigation = () => {
     </div>
     {/* header part */}
     {/* body part */}
-    <div className='container items-center flex my-9'>
+    <div className='container items-center flex my-9 pb-7 border-b border-b-[#ECECEC]'>
       <div className='flex gap-16'>
       <div className='flex gap-8'>
         <button onClick={()=>setSideBar(true)} className='block md:hidden cursor-pointer'>

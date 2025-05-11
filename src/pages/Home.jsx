@@ -6,6 +6,9 @@ import PopularProduct from '../components/Home/PopularProduct'
 import BestSells from '../components/Home/BestSells'
 import Deals from '../components/Home/Deals'
 import Highlight from '../components/Home/Highlight'
+import OnlineOffering from '../components/Home/OnlineOffering'
+import Offering from '../components/Home/Offering'
+import Footer from '../components/Home/Footer'
 
 const Home = () => {
   return (
@@ -17,6 +20,9 @@ const Home = () => {
     <BestSells/>
     <Deals/>
     <Highlight/>
+    <OnlineOffering/>
+    <Offering/>
+    <Footer/>
     </>
   )
 }
