@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router'
 import axios from 'axios';
-import { ToastContainer } from 'react-toastify';
+import { toast, ToastContainer } from 'react-toastify';
 
 const Registration = () => {
 
@@ -23,11 +23,11 @@ const Registration = () => {
     };
     
     try {
-      const { res } = await axios.request(options);
-      toast.success(res.data.message)
-      console.log(res.data.message);
+      const { data } = await axios.request(options);
+      toast.success(data.message)
+      console.log(data);
     } catch (error) {
-      console.error(error.response.data.errors);
+      console.error(error);
     }
 
   };

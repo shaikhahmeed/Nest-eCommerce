@@ -1,10 +1,11 @@
 import React from 'react'
 import { FaStar } from 'react-icons/fa'
 
-const HighlightItem = ({Children}) => {
+const HighlightItem = ({children}) => {
+  
   return (
-    <div>
-        <h2 className='font-bold text-2xl text-primary'>{Children}</h2>
+    <div className='cursor-pointer'>
+        <h2 className='font-bold text-2xl text-primary'>{children}</h2>
         <div className='w-20 h-0.5 bg-[#BCE3C9] mt-4'>
         </div>
         <div className='mt-12 flex flex-col gap-5 mb-14]'>
@@ -13,7 +14,7 @@ const HighlightItem = ({Children}) => {
                 <img src="/highlight.png" alt="" className='w-full'/>
             </div>
             <div className='bg-white rounded-xl'>
-                           <h3 className='font-bold text-base text-primary max-w-52'>Chobani Complete Vanilla Greek
+                           <h3 className='font-bold text-xs md:text-base text-primary max-w-52'>Chobani Complete Vanilla Greek
                            Yogurt</h3>
                            <ul className='flex gap-12 items-center'>
                              <li>
@@ -39,7 +40,7 @@ const HighlightItem = ({Children}) => {
                 <img src="/highlight.png" alt="" className='w-full'/>
             </div>
             <div className='bg-white rounded-xl'>
-                           <h3 className='font-bold text-base text-primary max-w-52'>Chobani Complete Vanilla Greek
+                           <h3 className='font-bold text-xs md:text-base text-primary max-w-52'>Chobani Complete Vanilla Greek
                            Yogurt</h3>
                            <ul className='flex gap-12 items-center'>
                              <li>
@@ -65,7 +66,7 @@ const HighlightItem = ({Children}) => {
                 <img src="/highlight.png" alt="" className='w-full'/>
             </div>
             <div className='bg-white rounded-xl'>
-                           <h3 className='font-bold text-base text-primary max-w-52'>Chobani Complete Vanilla Greek
+                           <h3 className='font-bold text-xs md:text-basetext-xs md:text-base text-primary max-w-52'>Chobani Complete Vanilla Greek
                            Yogurt</h3>
                            <ul className='flex gap-12 items-center'>
                              <li>

@@ -6,8 +6,8 @@ const DealsItem = () => {
   return (
    <>
     <div className='relative group'>
-    <div className='mt-10 pb-36 pt-40 px-12 bg-no-repeat bg-center'style={{backgroundImage:"url('/deals.png')"}} >
-        <ul className='flex gap-3.5'>
+    <div className='mt-4 md:mt-10 pb-36 pt-30 md:pt-40 px-3 md:px-12 bg-no-repeat bg-center rounded-4xl'style={{backgroundImage:"url('/deals.png')"}} >
+        <ul className='flex gap-1 md:gap-3.5 cursor-pointer'>
             <li className='pt-4 px-5  bg-white border-secondary rounded-xs text-center'>
                 <p className='max-w-6 text-2xl text-brand font-light'>22 <span className='max-w-16 text-base font-medium text-secondary'>Days</span></p>
             </li>
@@ -22,7 +22,7 @@ const DealsItem = () => {
             </li>
         </ul>
     </div>
-    <div className='absolute top-80 left-14 group-hover:translate-y-5 cursor-pointer'>
+    <div className='absolute top-80 left-4 md:left-14 group-hover:translate-y-2 md:group-hover:translate-y-5 cursor-pointer'>
        <div className='p-7 bg-white rounded-xl'>
                <p className='font-medium text-xs text-secondary'>Hodo Foods</p>
                <h3 className='pt-2.5 font-bold text-base text-primary max-w-52'>Chobani Complete Vanilla Greek

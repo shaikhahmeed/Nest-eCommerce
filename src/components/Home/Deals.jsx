@@ -12,7 +12,7 @@ const Deals = () => {
                 <h2 className='text-3xl font-bold text-primary'>Deals Of The Day</h2>
                </div>
                <div>
-                <ul className='flex gap-4 text-base text-primary font-light'>
+                <ul className='hidden md:flex gap-4 text-base text-primary font-light'>
                  <li>
                     <Link to="/" className='hover:text-brand flex items-center'>
                     <p>All deals</p>
@@ -22,9 +22,13 @@ const Deals = () => {
                 </ul>
                </div>
         </div>
-        <div className='flex'>
+        <div className='hidden md:flex'>
             <DealsItem/>
             <DealsItem/>
+            <DealsItem/>
+            <DealsItem/>
+        </div>
+        <div className='flex md:hidden flex-col gap-24'>
             <DealsItem/>
             <DealsItem/>
         </div>

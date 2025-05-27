@@ -73,7 +73,7 @@ const Navigation = () => {
             <option value="">All Categories</option>
           </select>
         </div>
-        <div className='w-90% flex gap-24 lg:gap-60 xl:gap-96 justify-between border border-brand text-xs'>
+        <div className='w-90% flex gap-24 lg:gap-60 xl:gap-96 justify-between  text-xs'>
           <input type="text" placeholder='Search for items...' className='outline-0' />
           <button className='cursor-pointer'><FaSearch /></button>
         </div>

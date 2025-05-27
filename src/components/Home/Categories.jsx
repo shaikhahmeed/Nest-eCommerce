@@ -35,7 +35,7 @@ const Categories = () => {
   return (
     <section>
         <div className="container">
-            <div className='flex gap-7 items-end'>
+            <div className='hidden md:flex gap-7 items-end'>
                <div>
                 <h2 className='text-3xl font-bold text-primary'>Featured Categories</h2>
                </div>
@@ -56,6 +56,29 @@ const Categories = () => {
                 </ul>
                </div>
             </div>
+            <div className='flex flex-col md:hidden'>
+               <div>
+                <h2 className='text-2xl font-bold text-primary'>Featured Categories</h2>
+               </div>
+               <div>
+                <ul className='flex pt-5 gap-2 font-bold text-sm text-primary'>
+                 <li>
+                    <Link to="/" className='hover:text-brand'>Cake & Milk</Link>
+                 </li>
+                 <li>
+                    <Link to="/" className='hover:text-brand'>Coffes & Teas</Link>
+                 </li>
+                 <li>
+                    <Link to="/" className='hover:text-brand'>Pet Foods</Link>
+                 </li>
+                </ul>
+                <ul className='text-sm pt-2 font-bold text-primary'>
+                  <li> 
+                    <Link to="/" className='hover:text-brand'>Vegetables</Link>
+                 </li>
+                </ul>
+               </div>
+            </div>
             <div className='pt-11'>
             <Slider {...settings}>
                 <CategoryItems/>
@@ -68,7 +91,7 @@ const Categories = () => {
                 <CategoryItems/>
                 <CategoryItems/>
                 <CategoryItems/>
-                </Slider>
+               </Slider>
             </div>
         </div>
     </section>

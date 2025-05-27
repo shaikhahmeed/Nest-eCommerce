@@ -4,7 +4,7 @@ import { MdOutlineStarPurple500 } from 'react-icons/md'
 
 const BestSellItem = () => {
   return (
-    <div className='w-fit shadow-2xl rounded-3xl'>
+    <div className='w-full  border border-[#ECECEC] hover:border-brand transition-all rounded-3xl cursor-pointer'>
         <p className='py-2 px-5 bg-brand text-white font-medium text-xs w-fit rounded-tl-3xl rounded-br-4xl'>Save 35%</p>
         <img className='w-full' src="/sellItem.png" alt="sellItem.png" />
         <div className='px-5'>
@@ -17,7 +17,7 @@ const BestSellItem = () => {
             <p className='font-bold text-sm text-secondary line-through'>$32.8</p>
         </div>
         <p className='font-medium text-xs text-primary mt-2.5'>Sold: 90/120</p>
-        <button className='py-2.5 px-14 rounded-xs cursor-pointer flex bg-brand mt-8 text-white items-center'>
+        <button className='py-2.5 px-14 w-full rounded-xs cursor-pointer flex gap-4 bg-brand mt-8 text-white items-center'>
             <p><IoCartOutline/></p>
             <p>Add to cart</p>
         </button>

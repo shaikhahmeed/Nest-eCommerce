@@ -9,14 +9,14 @@ const ProductItem = () => {
         <p>Hot</p>
       </div>
       <div className='p-6'>
-      <div className='w-full'>
+      <div className='w-full cursor-pointer'>
         <img src="/productItem.png" alt="" />
       </div>
       <div>
-        <p className='font-medium text-xs text-secondary'>Snack</p>
-        <h3 className='pt-2.5 font-bold text-base text-primary max-w-52'>Seeds of Change Organic
+        <p className='font-medium text-xs text-secondary cursor-pointer'>Snack</p>
+        <h3 className='pt-2.5 font-bold text-base text-primary max-w-52 cursor-pointer'>Seeds of Change Organic
         Quinoa, Brown, & Red Rice</h3>
-        <ul className='flex gap-12 items-center pt-2.5'>
+        <ul className='flex gap-12 items-center pt-2.5 cursor-pointer'>
           <li>
             <p className='text-amber-400 '><FaStar/></p>
           </li>
@@ -24,8 +24,8 @@ const ProductItem = () => {
             <p>(4)</p>
           </li>
         </ul>
-        <p className='font-medium text-sm text-secondary'>By <span className='text-brand'>NestFood</span></p>
-        <div className='flex justify-between items-center'>
+        <p className='font-medium text-sm text-secondary cursor-pointer'>By <span className='text-brand'>NestFood</span></p>
+        <div className='flex justify-between items-center cursor-pointer'>
           <div className='flex gap-2.5 items-end'>
             <p className='font-bold text-lg text-brand'>$28.85</p>
             <p className='font-bold text-sm text-secondary line-through'>$32.8</p>
