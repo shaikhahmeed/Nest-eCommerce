@@ -4,7 +4,7 @@ import { FaStar } from 'react-icons/fa'
 
 const ProductItem = () => {
   return (
-    <div className='border-2 rounded-2xl border-[#ECECEC] w-fit'>
+    <div className='border rounded-2xl border-[#ECECEC] w-fit hover:border-brand transition-all'>
       <div className='px-5 py-2.5 bg-[#F74B81] w-fit rounded-tl-2xl rounded-br-3xl'>
         <p>Hot</p>
       </div>

@@ -16,13 +16,20 @@ const Login = () => {
     const options = {
       method: 'POST',
       url: 'https://api.freeapi.app/api/v1/users/login',
-      headers: {accept: 'application/json', 'content-type': 'application/json'},
+      headers: {
+        accept: 'application/json', 
+        'content-type': 'application/json',
+      },
       data: userData,
     };
     
     try {
-      const { res } = await axios.request(options);
-      console.log(res.data.data)
+      const  res  = await axios.request(options);
+      console.log(res.data.data.accessToken);
+      localStorage.setItem("token", res.data.data.accessToken);
+      console.log(res.data.data.user);
+
+
       toast.success(res.data.message)
     } catch (error) {
       toast.error(error.response.data.message);
