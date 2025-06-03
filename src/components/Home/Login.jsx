@@ -1,9 +1,12 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router'
+import { Link, useNavigate } from 'react-router'
 import axios from 'axios';
 import { toast, ToastContainer } from 'react-toastify';
 
 const Login = () => {
+
+  const navigate = useNavigate();
+
   const [userData,setUserData]= useState({
      username:"",
      password:"",
@@ -26,10 +29,15 @@ const Login = () => {
     try {
       const  res  = await axios.request(options);
       console.log(res.data.data.accessToken)
+      localStorage.setItem("token", res.data.data.accessToken);
+      
+      localStorage.setItem("user", JSON.stringify(res.data.data.user));
+
+      setTimeout(()=>{
+        navigate("/")
+      },2000);
 
       toast.success(res.data.message);
-      // localStorage.setItem("token", res.data.data.accessToken);
-      // console.log(res.data.data.user);
 
     } catch (error) {
       toast.error(error.response.data.message);

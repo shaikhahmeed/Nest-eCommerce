@@ -46,11 +46,18 @@ try {
               </div>
             </div>
           <div className='grid grid-cols-6 gap-4 mt-14'>
-            {
-              productList.map((item)=>(
-                <ProductItem/>
-              ))
-            }
+            <ProductItem/>
+            <ProductItem/>
+            <ProductItem/>
+            <ProductItem/>
+            <ProductItem/>
+            <ProductItem/>
+            <ProductItem/>
+            <ProductItem/>
+            <ProductItem/>
+            <ProductItem/>
+            <ProductItem/>
+            <ProductItem/>
           </div>
         </div>
     </section>
@@ -59,6 +66,12 @@ try {
 export default Products
 
 
-            // <div className='mt-3'>
-            //     <ItemOneComp/>
-            // </div>
+// <div className='mt-3'>
+//     <ItemOneComp/>
+// </div>
+
+
+// {
+//   productList.map((item)=>(
+//   ))
+// }

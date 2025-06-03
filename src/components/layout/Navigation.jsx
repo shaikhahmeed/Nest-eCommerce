@@ -84,7 +84,7 @@ const Navigation = () => {
           <li className='py-2.5 px-2.5 flex text-2xl lg:text-base relative'>
             <Link><FaCartArrowDown /></Link>
             <p className='border border-brand rounded-full px-1 py-0.5 bg-brand text-xs absolute -top-1.5 right-0.5 lg:right-8'>3</p>
-            <button className='cursor-pointer text-primary'><span className='hidden lg:block'>Cart</span></button>
+            <Link to="/cart" className='cursor-pointer text-primary'><span className='hidden lg:block'>Cart</span></Link>
           </li>
           <li className='py-2.5 px-2.5 flex text-2xl lg:text-base relative'>
             <Link><FaRegHeart /></Link>

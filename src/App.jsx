@@ -5,6 +5,8 @@ import Shop from "./pages/Shop";
 import Login from "./components/Home/Login";
 import Registration from "./components/Home/Registration";
 import About from "./pages/About";
+import Cart from "./pages/Cart";
+import ProductDetails from "./pages/ProductDetails";
 
 function App() {
  
@@ -20,6 +22,8 @@ function App() {
         <Route index element={<Home />}/>
         <Route path="/shop" element={<Shop />}/>
         <Route path="/about" element={<About/>}/>
+        <Route path="/cart" element={<Cart/>}/>
+        <Route path="/product_details" element={<ProductDetails/>}/>
       </Route>
     </Routes>
   </BrowserRouter>
