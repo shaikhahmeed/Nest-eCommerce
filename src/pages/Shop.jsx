@@ -13,9 +13,9 @@ const Shop = () => {
    <>
    <Banner/>
    <Products/>
-   <ItemOne/>
-   <ItemTwo/>
-   <ItemThree/>
+   {/* <ItemOne/> */}
+   {/* <ItemTwo/> */}
+   {/* <ItemThree/> */}
    <ShopDeals/>
    <OnlineOffering/>
    <Footer/>

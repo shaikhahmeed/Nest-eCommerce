@@ -1,25 +1,12 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Link } from 'react-router'
 import CategoryItems from './CategoryItems'
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
-import { FaArrowLeftLong, FaArrowRightLong } from 'react-icons/fa6';
+import axios from 'axios';
+import { NextArrow, PrevArrow } from '../utls/SliderArrows';
 
-function SampleNextArrow(props) {
-    const { className, style, onClick } = props;
-    return (
-      <div className='cursor-pointer' onClick={onClick}><FaArrowRightLong/></div>
-    );
-  }
-  
-  function SamplePrevArrow(props) {
-    const { className, style, onClick } = props;
-    return (
-        <div className='cursor-pointer' onClick={onClick}>
-            <FaArrowLeftLong/>
-        </div>
-    );
-  }
+
 
 const Categories = () => {
     const settings = {
@@ -27,10 +14,29 @@ const Categories = () => {
         infinite: true,
         speed: 500,
         slidesToShow: 10,
-        slidesToScroll: 1,
-        nextArrow: <SampleNextArrow />,
-        prevArrow: <SamplePrevArrow />
+        slidesToScroll: 5,
+        nextArrow: <NextArrow customStyle="absolute -top-10 md:-top-16 right-0" />,
+        prevArrow: <PrevArrow customStyle="absolute -top-10 md:-top-16 right-16"/>,
       };
+
+      useEffect(()=>{
+         (async()=>{
+            const options = {
+          method: 'GET',
+          url: 'https://api.freeapi.app/api/v1/ecommerce/categories',
+          params: {page: '1', limit: '10'},
+          headers: {accept: 'application/json'}
+      };
+
+      try {
+         const { data } =await axios.request(options);
+      console.log(data.data.categories);
+      } catch (error) {
+  console.error(error);
+} 
+         })()
+         
+      },[])
 
   return (
     <section>
@@ -91,7 +97,7 @@ const Categories = () => {
                 <CategoryItems/>
                 <CategoryItems/>
                 <CategoryItems/>
-               </Slider>
+            </Slider>
             </div>
         </div>
     </section>

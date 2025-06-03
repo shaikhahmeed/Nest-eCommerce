@@ -1,7 +1,32 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { FiBox } from 'react-icons/fi'
+import ProductItem from '../utls/ProductItem'
+import ItemOneComp from './ItemOneComp'
+import axios from 'axios';
 
 const Products = () => {
+const [productList,setProductList]=useState([])
+
+ useEffect(()=>{
+
+  const api = async()=>{
+  const options = {
+    method: 'GET',
+    url: 'https://api.freeapi.app/api/v1/ecommerce/products',
+    params: {page: '1', limit: '10'},
+    headers: {accept: 'application/json'},
+};
+
+try {
+  const  res  = await axios.request(options);
+  console.log(res.data.data.products);
+} catch (error) {
+  console.error(error);
+}
+    };
+    api();
+  },[]);
+
   return (
     <section>
         <div className="container">
@@ -20,8 +45,20 @@ const Products = () => {
                 </div>
               </div>
             </div>
+          <div className='grid grid-cols-6 gap-4 mt-14'>
+            {
+              productList.map((item)=>(
+                <ProductItem/>
+              ))
+            }
+          </div>
         </div>
     </section>
   )
 }
 export default Products
+
+
+            // <div className='mt-3'>
+            //     <ItemOneComp/>
+            // </div>

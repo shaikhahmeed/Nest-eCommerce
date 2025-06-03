@@ -224,7 +224,7 @@ const Navigation = () => {
             <Link to="/home"  className='hover:text-brand transition'>Home </Link>
           </li>
           <li>
-            <Link className='hover:text-brand transition'>About</Link>
+            <Link to="/about" className='hover:text-brand transition'>About</Link>
           </li>
           <li>
             <Link to="/shop" className='hover:text-brand transition'>Shop</Link>
