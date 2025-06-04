@@ -9,13 +9,19 @@ import { IoIosArrowDropdown, IoMdCloseCircleOutline } from "react-icons/io";
 import { FaHeadphones } from "react-icons/fa6";
 import { Link } from 'react-router';
 import { MdKeyboardArrowDown } from 'react-icons/md';
-
-
+import { useDispatch, useSelector } from 'react-redux'
 
 
 const Navigation = () => {
   const[show,setShow]=useState(false);
   const[sideBar,setSideBar]=useState(false);
+  const data = useSelector((state)=>state.alu.value)
+
+console.log(data);
+
+
+
+
   return (
     <>
     {/* header part */}
@@ -80,25 +86,25 @@ const Navigation = () => {
       </div>
       </div>
       <div className='ml-auto'>
-        <ul className='flex'>
+        <ul className='flex items-center'>
+          <li className='py-2.5 px-2.5 flex items-center gap-1 text-2xl lg:text-base relative'>
+            <div className='overflow-hidden w-[30px] h-[30px] flex items-center justify-center rounded-full bg-gray-100'>
+              <img src={data?.userPhoto} alt="userProfile" />
+            </div>
+            <h2 className='text-base font-medium text-black'>
+              {
+                data?.userName
+              }
+            </h2>
+          </li>
           <li className='py-2.5 px-2.5 flex text-2xl lg:text-base relative'>
             <Link><FaCartArrowDown /></Link>
             <p className='border border-brand rounded-full px-1 py-0.5 bg-brand text-xs absolute -top-1.5 right-0.5 lg:right-8'>3</p>
             <Link to="/cart" className='cursor-pointer text-primary'><span className='hidden lg:block'>Cart</span></Link>
           </li>
-          <li className='py-2.5 px-2.5 flex text-2xl lg:text-base relative'>
-            <Link><FaRegHeart /></Link>
-            <p className='border border-brand rounded-full px-1 py-0.5 bg-brand text-xs absolute -top-1.5 right-0.5 lg:right-14'>6</p>                         
-            <button className='cursor-pointer text-primary'><span className='hidden lg:block'>Wishlist</span></button>
-          </li>
-          <li className='py-2.5 px-2.5 hidden lg:flex text-base relative'>
-            <Link><FaCodeCompare/></Link>
-            <p className='border border-brand rounded-full px-1 py-0.5 bg-brand text-xs absolute -top-1.5 right-16'>2</p>
-            <button className='cursor-pointer text-primary'>Compare</button>
-          </li>
-          <li className='py-2.5 px-2.5 hidden lg:flex text-base'>
+          <li className='py-2.5 px-2.5 hidden lg:flex text-base items-center gap-1'>
             <Link to="/login"><FaRegUser /></Link>
-            <Link to="/login" className='cursor-pointer text-primary'>Account</Link>
+            <Link to="/login" className='cursor-pointer text-primary'>Login</Link>
           </li>
         </ul>
       </div>

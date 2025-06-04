@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router'
 import axios from 'axios';
 import { toast, ToastContainer } from 'react-toastify';
+import { useDispatch } from 'react-redux';
+import { userAccountInfo } from '../../slice/counterSlice';
 
 const Login = () => {
 
@@ -12,9 +14,17 @@ const Login = () => {
      password:"",
    });
 
+   const logedUserInfo = {
+    userName: "Sir Shaikh",
+    userPhoto:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSTqbxxVd4r1bTKFh5jH3uvG4wTY7LJiAC1rA&s"
+   }
+
+   const dispatch = useDispatch();
+
    const handlelogin=async(e)=>{
     e.preventDefault();
-
+      dispatch(userAccountInfo(logedUserInfo))
+      localStorage.setItem('userData',JSON.stringify(logedUserInfo));
 
     const options = {
       method: 'POST',
