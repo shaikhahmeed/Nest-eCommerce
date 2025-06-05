@@ -16,6 +16,7 @@ const Navigation = () => {
   const[show,setShow]=useState(false);
   const[sideBar,setSideBar]=useState(false);
   const userData = useSelector((state)=>state.user)
+  const cartData = useSelector((state)=>state.cart.cart)
   console.log(userData)
 
 
@@ -89,7 +90,11 @@ const Navigation = () => {
         <ul className='flex items-center'>
           <li className='py-2.5 px-2.5 flex text-2xl lg:text-base relative'>
             <Link><FaCartArrowDown /></Link>
-            <p className='border border-brand rounded-full px-1 py-0.5 bg-brand text-xs absolute -top-1.5 right-0.5 lg:right-8'>3</p>
+            <p className='border border-brand rounded-full px-1 py-0.5 bg-brand text-xs absolute -top-1.5 right-0.5 lg:right-8'>
+              {
+                cartData.length
+              }
+            </p>
             <Link to="/cart" className='cursor-pointer text-primary'><span className='hidden lg:block'>Cart</span></Link>
           </li>
           <li className='py-2.5 px-2.5 hidden lg:flex text-base items-center gap-1'>
@@ -106,7 +111,6 @@ const Navigation = () => {
               }
               </h2>
               </>
-              
               :
               <Link to="/login" className='cursor-pointer text-primary'>Login</Link>
             }
@@ -139,7 +143,7 @@ const Navigation = () => {
                   <p><MdKeyboardArrowDown/></p>
                 </li>
                 <li className='flex justify-between items-center cursor-pointer p-3 border-b border-[#ececec]'>
-                  <Link className='hover:text-brand transition '>About</Link>
+                  <Link to="/about" className='hover:text-brand transition '>About</Link>
                   <p><MdKeyboardArrowDown/></p>
                 </li>
                 <li className='flex justify-between items-center cursor-pointer p-3 border-b border-[#ececec]'>

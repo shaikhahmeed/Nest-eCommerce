@@ -1,9 +1,18 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Breadcamp from '../components/utls/Breadcamp'
 import { MdOutlineDelete } from 'react-icons/md'
 import { IoCartOutline } from 'react-icons/io5'
+import { useSelector } from 'react-redux'
 
 const Cart = () => {
+     const cartData = useSelector((state)=>state.cart.cart)
+    //  console.log(cartData);
+    let sum = 0;
+     cartData.forEach((item)=>{
+        sum = item.quantity * item.productData.price
+     })
+     
+
   return (
     <>
     <div className='mt-10 border py-4 border-t-[#ECECEC] border-b-[#ECECEC] '>
@@ -32,53 +41,51 @@ const Cart = () => {
                     </ul>
                 </div>
             </div>
-            <div className='flex w-fit items-center gap-60 pt-10'>
-                <div className='flex items-center'>
-                    <img src="/productItem.png" alt="productItem" className='w-28 h-28'/>
-                    <p>Field Roast Chao Cheese Creamy Original</p>
-                </div>
-                 <div className='flex items-center gap-6 '>
-                     <p className='font-bold text-lg text-[#7E7E7E]'>$2.51</p>
-                     <input type="number"  value={1} className='border-2 outline-0 text-center py-2 cursor-pointer border-brand w-20 rounded-xl'/>
-                     <p className='font-bold text-lg text-brand'>$2.51</p>
-                     <button className='cursor-pointer'><MdOutlineDelete/></button>
-                 </div>
-            </div>
-             <div className='flex w-fit items-center gap-60 pt-10'>
-                <div className='flex items-center'>
-                    <img src="/productItem.png" alt="productItem" className='w-28 h-28'/>
-                    <p>Field Roast Chao Cheese Creamy Original</p>
-                </div>
-                 <div className='flex items-center gap-6 '>
-                     <p className='font-bold text-lg text-[#7E7E7E]'>$2.51</p>
-                     <input type="number"  value={1} className='border-2 outline-0 text-center py-2 cursor-pointer border-brand w-20 rounded-xl'/>
-                     <p className='font-bold text-lg text-brand'>$2.51</p>
-                     <button className='cursor-pointer'><MdOutlineDelete/></button>
-                 </div>
-            </div>
-             <div className='flex w-fit items-center gap-60 pt-10'>
-                <div className='flex items-center'>
-                    <img src="/productItem.png" alt="productItem" className='w-28 h-28'/>
-                    <p>Field Roast Chao Cheese Creamy Original</p>
-                </div>
-                 <div className='flex items-center gap-6 '>
-                     <p className='font-bold text-lg text-[#7E7E7E]'>$2.51</p>
-                     <input type="number"  value={1} className='border-2 outline-0 text-center py-2 cursor-pointer border-brand w-20 rounded-xl'/>
-                     <p className='font-bold text-lg text-brand'>$2.51</p>
-                     <button className='cursor-pointer'><MdOutlineDelete/></button>
-                 </div>
-            </div>
+            {
+                cartData.map((item)=>(
+                    <div key={item.productData.id} data={item}>
+                     <div className='flex w-fit items-center gap-60 pt-10'>
+                       <div className='flex items-center'>
+                        <img src={item?.productData?.images[0]} alt="productItem" className='w-28 h-28'/>
+                         <p>
+                            {
+                                item?.productData?.title
+                            }
+                         </p>
+                        </div>
+                        <div className='flex items-center gap-6 '>
+                             <p className='font-bold text-lg text-[#7E7E7E]'>
+                               $ {
+                                     item?.productData?.price
+                                }
+                             </p>
+                            <p  className='border-2 outline-0 text-center py-2 cursor-pointer border-brand w-20 rounded-xl'>
+                                {
+                                     item?.quantity
+                                }
+                            </p>
+                             <p className='font-bold text-lg text-brand'>
+                                ${
+                                    item?.quantity*item?.productData?.price 
+                                 }
+                             </p>
+                             <button className='cursor-pointer'><MdOutlineDelete/></button>
+                         </div>
+                     </div>
+                    </div>
+                ))
+            }
         </div>
        </div>
        <div className='p-12 mt-30 bg-[#CED4DA] rounded-xl w-fit h-fit absolute top-10 right-16'>
          <h2 className='font-bold text-primary text-3xl pb-8'>Cart Totals</h2>
          <div className='flex gap-7 pb-6'>
             <p className='text-base text-primary font-medium'>Subtotal</p>
-            <p className='text-base text-primary font-medium'>BDT 450</p>
+            <p className='text-base text-primary font-medium'>${sum}</p>
          </div>
          <div className='flex gap-7 pb-6'>
             <p className='text-base text-primary font-medium'>Subtotal</p>
-            <p className='text-base text-primary font-medium'>BDT 450</p>
+            <p className='text-base text-primary font-medium'>${sum}</p>
          </div>
        </div>
     </div>

@@ -5,13 +5,22 @@ import { IoCartOutline, IoHeartOutline } from 'react-icons/io5';
 import { TbArrowsCross } from 'react-icons/tb';
 import axios from 'axios';
 import { useParams } from 'react-router';
+import { useDispatch } from 'react-redux';
+import { addToCart } from '../slice/cartSlice';
 
 
 const ProductDetails = () => {
 
+  const dispatch=useDispatch()
+  const [quantity,setQuantity]=useState("1")
+
   const params = useParams()
 
     const [productData,setproductData]=useState({});
+
+    const handleAddCart=()=>{
+      dispatch(addToCart({quantity,productData}))
+    }
    
     useEffect(()=>{
    
@@ -29,9 +38,6 @@ const ProductDetails = () => {
         setproductData(item);
       }
      })
-     
-
-     setProductList(res.data);
    } catch (error) {
      console.error(error);
    }
@@ -75,8 +81,11 @@ const ProductDetails = () => {
             </div>
             <p className='pt-9 font-medium text-base text-[#7E7E7E] max-w-md'>{productData?.description}</p>
                 <div className='flex pt-4 gap-2'>
-                  <input type="number"  value={1} className='border-2 outline-0 text-center py-3 cursor-pointer border-brand w-20 rounded-xl'/>
-                  <button className='py-3.5 px-5 bg-brand font-bold text-base text-[#FFFFFF] rounded-xl cursor-pointer flex items-center gap-1'><IoCartOutline />Add to cart</button>
+                  <input
+                  onChange={(e)=>setQuantity(e.target.value)}
+                  min="1"
+                   type="number"  className='border-2 outline-0 text-center py-3 cursor-pointer border-brand w-20 rounded-xl'/>
+                  <button onClick={handleAddCart} className='py-3.5 px-5 bg-brand font-bold text-base text-[#FFFFFF] rounded-xl cursor-pointer flex items-center gap-1'><IoCartOutline />Add to cart</button>
                   <div className='p-4 bg-[#FFFFFF] border border-[#FFFFFF] cursor-pointer'><IoHeartOutline /></div>
                   <div className='p-4 bg-[#FFFFFF] border border-[#FFFFFF] cursor-pointer'><TbArrowsCross /></div>
                 </div>
