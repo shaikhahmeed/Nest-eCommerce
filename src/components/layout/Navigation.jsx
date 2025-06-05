@@ -9,15 +9,15 @@ import { IoIosArrowDropdown, IoMdCloseCircleOutline } from "react-icons/io";
 import { FaHeadphones } from "react-icons/fa6";
 import { Link } from 'react-router';
 import { MdKeyboardArrowDown } from 'react-icons/md';
-import { useDispatch, useSelector } from 'react-redux'
+import { useSelector } from 'react-redux'
 
 
 const Navigation = () => {
   const[show,setShow]=useState(false);
   const[sideBar,setSideBar]=useState(false);
-  const data = useSelector((state)=>state.alu.value)
+  const userData = useSelector((state)=>state.user)
+  console.log(userData)
 
-console.log(data);
 
 
 
@@ -87,24 +87,29 @@ console.log(data);
       </div>
       <div className='ml-auto'>
         <ul className='flex items-center'>
-          <li className='py-2.5 px-2.5 flex items-center gap-1 text-2xl lg:text-base relative'>
-            <div className='overflow-hidden w-[30px] h-[30px] flex items-center justify-center rounded-full bg-gray-100'>
-              <img src={data?.userPhoto} alt="userProfile" />
-            </div>
-            <h2 className='text-base font-medium text-black'>
-              {
-                data?.userName
-              }
-            </h2>
-          </li>
           <li className='py-2.5 px-2.5 flex text-2xl lg:text-base relative'>
             <Link><FaCartArrowDown /></Link>
             <p className='border border-brand rounded-full px-1 py-0.5 bg-brand text-xs absolute -top-1.5 right-0.5 lg:right-8'>3</p>
             <Link to="/cart" className='cursor-pointer text-primary'><span className='hidden lg:block'>Cart</span></Link>
           </li>
           <li className='py-2.5 px-2.5 hidden lg:flex text-base items-center gap-1'>
-            <Link to="/login"><FaRegUser /></Link>
-            <Link to="/login" className='cursor-pointer text-primary'>Login</Link>
+            {
+              userData
+              ?
+              <>
+              <div className='overflow-hidden w-[30px] h-[30px] flex items-center justify-center rounded-full bg-gray-100'>
+                <img src={userData?.userPhoto} alt="userProfile" />
+              </div>
+              <h2 className='text-base font-medium text-black'>
+              {
+                userData?.userName
+              }
+              </h2>
+              </>
+              
+              :
+              <Link to="/login" className='cursor-pointer text-primary'>Login</Link>
+            }
           </li>
         </ul>
       </div>

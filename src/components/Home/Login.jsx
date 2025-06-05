@@ -3,28 +3,23 @@ import { Link, useNavigate } from 'react-router'
 import axios from 'axios';
 import { toast, ToastContainer } from 'react-toastify';
 import { useDispatch } from 'react-redux';
-import { userAccountInfo } from '../../slice/counterSlice';
+import { userAccountInfo } from '../../slice/userSlice';
 
 const Login = () => {
 
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const [userData,setUserData]= useState({
      username:"",
      password:"",
    });
 
-   const logedUserInfo = {
-    userName: "Sir Shaikh",
-    userPhoto:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSTqbxxVd4r1bTKFh5jH3uvG4wTY7LJiAC1rA&s"
-   }
 
-   const dispatch = useDispatch();
 
    const handlelogin=async(e)=>{
     e.preventDefault();
-      dispatch(userAccountInfo(logedUserInfo))
-      localStorage.setItem('userData',JSON.stringify(logedUserInfo));
+      // localStorage.setItem('userData',JSON.stringify(logedUserInfo));
 
     const options = {
       method: 'POST',
@@ -40,8 +35,8 @@ const Login = () => {
       const  res  = await axios.request(options);
       console.log(res.data.data.accessToken)
       localStorage.setItem("token", res.data.data.accessToken);
-      
       localStorage.setItem("user", JSON.stringify(res.data.data.user));
+      dispatch(userAccountInfo(res.data.data.user))
 
       setTimeout(()=>{
         navigate("/")

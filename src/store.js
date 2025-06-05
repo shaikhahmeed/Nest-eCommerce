@@ -1,8 +1,8 @@
 import { configureStore } from '@reduxjs/toolkit'
-import counterSlice  from './slice/counterSlice'
+import { userSlice } from './slice/userSlice'
 
 export default configureStore({
   reducer: {
-    alu:counterSlice
+    user:userSlice
   },
 })

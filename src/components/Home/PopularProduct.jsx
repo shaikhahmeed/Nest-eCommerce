@@ -1,7 +1,31 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import ProductItem from '../utls/ProductItem'
+import axios from 'axios';
 
 const PopularProduct = () => {
+
+   const [productList,setProductList]=useState([])
+   
+    useEffect(()=>{
+   
+     const api = async()=>{
+     const options = {
+       method: 'GET',
+       url: 'https://api.escuelajs.co/api/v1/products',
+       headers: {accept: 'application/json'},
+   };
+   
+   try {
+     const  res  = await axios.request(options);
+     console.log(res.data)
+     setProductList(res.data);
+   } catch (error) {
+     console.error(error);
+   }
+       };
+       api();
+     },[]);
+productList.length=10;
   return (
     <section>
         <div className="container">
@@ -63,26 +87,19 @@ const PopularProduct = () => {
                 </ul>
                 </div>
             </div>
-            <div className='hidden md:grid pt-11 pb-12  grid-cols-5 gap-6'>
-                <ProductItem/>
-                <ProductItem/>
-                <ProductItem/>
-                <ProductItem/>
-                <ProductItem/>
-                <ProductItem/>
-                <ProductItem/>
-                <ProductItem/>
-                <ProductItem/>
-                <ProductItem/>
+            <div className='hidden md:grid pt-11 pb-12 md:grid-cols-3 lg:grid-cols-5 gap-6'>
+                {
+                  productList.map((item)=>(
+                  <ProductItem key={item.id} data={item}/>
+                   ))
+                }
             </div>
             <div className='flex flex-col gap-5 md:hidden pt-11 pb-12'>
-                <ProductItem/>
-                <ProductItem/>
-                <ProductItem/>
-                <ProductItem/>
-                <ProductItem/>
-                <ProductItem/>
-                <ProductItem/>
+                {
+                 productList.map((item)=>(
+                <ProductItem key={item.id} data={item}/>
+                ))
+                }
             </div>
         </div>
     </section>

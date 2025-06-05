@@ -1,11 +1,43 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import ProductSlide from "product-slide";
 import { FaStar } from 'react-icons/fa';
 import { IoCartOutline, IoHeartOutline } from 'react-icons/io5';
 import { TbArrowsCross } from 'react-icons/tb';
+import axios from 'axios';
+import { useParams } from 'react-router';
 
 
 const ProductDetails = () => {
+
+  const params = useParams()
+
+    const [productData,setproductData]=useState({});
+   
+    useEffect(()=>{
+   
+     const api = async()=>{
+     const options = {
+       method: 'GET',
+       url: `https://api.escuelajs.co/api/v1/products`,
+       headers: {accept: 'application/json'},
+   };
+   
+   try {
+     const  res  = await axios.request(options);
+     res.data.find((item)=>{
+      if(item.slug == params.slug){
+        setproductData(item);
+      }
+     })
+     
+
+     setProductList(res.data);
+   } catch (error) {
+     console.error(error);
+   }
+       };
+       api();
+     },[]);
 
   const API = {
   images: [
@@ -25,10 +57,10 @@ const ProductDetails = () => {
       <div className="container">
         <div className="flex mt-16 gap-11">
           <div className='w-1/3'>
-             <ProductSlide settings={settings} api={API.images} />
+             <ProductSlide settings={settings} api={productData.images} />
           </div>
           <div className='pt-16'>
-            <h2 className='max-w-md font-bold text-4xl text-primary'>Seeds of Change Organic Quinoa, Brown</h2>
+            <h2 className='max-w-md font-bold text-4xl text-primary'>{productData?.title}</h2>
             <ul className='flex gap-12 items-center pt-4 cursor-pointer'>
                   <li>
                     <p className='text-amber-400 '><FaStar/></p>
@@ -38,11 +70,10 @@ const ProductDetails = () => {
                   </li>
               </ul>
             <div className='flex gap-2.5 items-end'>
-              <p className='font-bold text-6xl text-brand'>$28.85</p>
-              <p className='font-bold text-3xl text-secondary line-through'>$32.8</p>
+              <p className='font-bold text-6xl text-brand'>${productData?.price}</p>
+              <p className='font-bold text-3xl text-secondary line-through'>${productData?.price + 100}</p>
             </div>
-            <p className='pt-9 font-medium text-base text-[#7E7E7E] max-w-md'>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aliquam rem officia, corrupti reiciendis minima nisi modi, quasi,
-                odio minus dolore impedit fuga eum eligendi.</p>
+            <p className='pt-9 font-medium text-base text-[#7E7E7E] max-w-md'>{productData?.description}</p>
                 <div className='flex pt-4 gap-2'>
                   <input type="number"  value={1} className='border-2 outline-0 text-center py-3 cursor-pointer border-brand w-20 rounded-xl'/>
                   <button className='py-3.5 px-5 bg-brand font-bold text-base text-[#FFFFFF] rounded-xl cursor-pointer flex items-center gap-1'><IoCartOutline />Add to cart</button>

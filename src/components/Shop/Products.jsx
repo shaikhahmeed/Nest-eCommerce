@@ -12,14 +12,14 @@ const [productList,setProductList]=useState([])
   const api = async()=>{
   const options = {
     method: 'GET',
-    url: 'https://api.freeapi.app/api/v1/ecommerce/products',
-    params: {page: '1', limit: '10'},
+    url: 'https://api.escuelajs.co/api/v1/products',
     headers: {accept: 'application/json'},
 };
 
 try {
   const  res  = await axios.request(options);
-  console.log(res.data.data.products);
+  console.log(res.data)
+  setProductList(res.data);
 } catch (error) {
   console.error(error);
 }
@@ -32,7 +32,7 @@ try {
         <div className="container">
             <div>
               <div className='flex justify-between'>
-                <p className='text-primary text-lg'>We found <span className='text-brand'>29</span> items for you!</p>
+                <p className='text-primary text-lg'>We found <span className='text-brand'>{productList.length}</span> items for you!</p>
                 <div className='flex p-2 border-2 border-primary rounded-2xl items-center gap-0.5 text-primary text-lg cursor-pointer'>
                   <FiBox/>
                   <p>Show:</p>
@@ -46,18 +46,11 @@ try {
               </div>
             </div>
           <div className='grid grid-cols-6 gap-4 mt-14'>
-            <ProductItem/>
-            <ProductItem/>
-            <ProductItem/>
-            <ProductItem/>
-            <ProductItem/>
-            <ProductItem/>
-            <ProductItem/>
-            <ProductItem/>
-            <ProductItem/>
-            <ProductItem/>
-            <ProductItem/>
-            <ProductItem/>
+            {
+              productList.map((item)=>(
+                <ProductItem key={item.id} data={item}/>
+              ))
+            }
           </div>
         </div>
     </section>
@@ -65,13 +58,3 @@ try {
 }
 export default Products
 
-
-// <div className='mt-3'>
-//     <ItemOneComp/>
-// </div>
-
-
-// {
-//   productList.map((item)=>(
-//   ))
-// }

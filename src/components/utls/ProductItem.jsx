@@ -3,7 +3,7 @@ import { CiShoppingCart } from 'react-icons/ci'
 import { FaStar } from 'react-icons/fa'
 import { Link } from 'react-router'
 
-const ProductItem = () => {
+const ProductItem = ({data}) => {
   return (
     <section className='border rounded-2xl border-[#ECECEC] w-fit hover:border-brand transition-all'>
       <div className='px-5 py-2.5 bg-[#F74B81] w-fit rounded-tl-2xl rounded-br-3xl'>
@@ -11,12 +11,13 @@ const ProductItem = () => {
       </div>
       <div className='p-6'>
       <div className='w-full cursor-pointer'>
-        <img src="/productItem.png" alt="" />
+        <img src={data?.images[0]} alt="product" />
       </div>
       <div>
         <p className='font-medium text-xs text-secondary cursor-pointer'>Snack</p>
-        <Link to="/product_details" className='pt-2.5 font-bold text-base text-primary max-w-52 cursor-pointer hover:text-brand'>Seeds of Change Organic
-        Quinoa, Brown, & Red Rice</Link>
+        <Link to={`/product_details/${data.slug}`} className='pt-2.5 font-bold text-base text-primary max-w-52 cursor-pointer hover:text-brand'>
+        {data?.title}
+        </Link>
         <ul className='flex gap-12 items-center pt-2.5 cursor-pointer'>
           <li>
             <p className='text-amber-400 '><FaStar/></p>

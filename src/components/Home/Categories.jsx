@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router'
 import CategoryItems from './CategoryItems'
 import Slider from "react-slick";
@@ -9,6 +9,7 @@ import { NextArrow, PrevArrow } from '../utls/SliderArrows';
 
 
 const Categories = () => {
+   const [categoryList,setCategoryList]=useState([])
     const settings = {
         dots: false,
         infinite: true,
@@ -19,7 +20,7 @@ const Categories = () => {
         prevArrow: <PrevArrow customStyle="absolute -top-10 md:-top-16 right-16"/>,
       };
 
-      useEffect(()=>{
+      useEffect(()=>{ 
          (async()=>{
             const options = {
           method: 'GET',
@@ -30,7 +31,7 @@ const Categories = () => {
 
       try {
          const { data } =await axios.request(options);
-      console.log(data.data.categories);
+      setCategoryList(data.data.categories);
       } catch (error) {
   console.error(error);
 } 
@@ -87,16 +88,11 @@ const Categories = () => {
             </div>
             <div className='pt-11'>
             <Slider {...settings}>
-                <CategoryItems/>
-                <CategoryItems/>
-                <CategoryItems/>
-                <CategoryItems/>
-                <CategoryItems/>
-                <CategoryItems/>
-                <CategoryItems/>
-                <CategoryItems/>
-                <CategoryItems/>
-                <CategoryItems/>
+               {
+                  categoryList.map((item)=>(
+                     <CategoryItems key={item._id} data={item}/>
+                  ))
+               }
             </Slider>
             </div>
         </div>
