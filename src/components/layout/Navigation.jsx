@@ -15,11 +15,10 @@ import { useSelector } from 'react-redux'
 const Navigation = () => {
   const[show,setShow]=useState(false);
   const[sideBar,setSideBar]=useState(false);
-  const userData = useSelector((state)=>state.user)
+  const userData = useSelector((state)=>state.user.user)
   const cartData = useSelector((state)=>state.cart.cart)
+
   console.log(userData)
-
-
 
 
 
@@ -88,7 +87,7 @@ const Navigation = () => {
       </div>
       <div className='ml-auto'>
         <ul className='flex items-center'>
-          <li className='py-2.5 px-2.5 flex text-2xl lg:text-base relative'>
+          <li className='py-2.5 px-2.5 hidden  md:flex text-2xl lg:text-base relative'>
             <Link><FaCartArrowDown /></Link>
             <p className='border border-brand rounded-full px-1 py-0.5 bg-brand text-xs absolute -top-1.5 right-0.5 lg:right-8'>
               {
@@ -97,7 +96,7 @@ const Navigation = () => {
             </p>
             <Link to="/cart" className='cursor-pointer text-primary'><span className='hidden lg:block'>Cart</span></Link>
           </li>
-          <li className='py-2.5 px-2.5 hidden lg:flex text-base items-center gap-1'>
+          <li className='py-2.5 px-2.5 flex flex-col text-base items-center gap-1'>
             {
               userData
               ?
@@ -105,11 +104,7 @@ const Navigation = () => {
               <div className='overflow-hidden w-[30px] h-[30px] flex items-center justify-center rounded-full bg-gray-100'>
                 <img src={userData?.userPhoto} alt="userProfile" />
               </div>
-              <h2 className='text-base font-medium text-black'>
-              {
-                userData?.userName
-              }
-              </h2>
+              <h2 className='text-base font-medium text-black'>{userData?.username}</h2>
               </>
               :
               <Link to="/login" className='cursor-pointer text-primary'>Login</Link>
@@ -163,8 +158,17 @@ const Navigation = () => {
                   <p><MdKeyboardArrowDown/></p>
                 </li>
                 <li className='flex justify-between items-center cursor-pointer p-3 border-b border-[#ececec]'>
-                  <Link className='hover:text-brand transition'>Contact</Link>
+                  <Link to="/contact" className='hover:text-brand transition'>Contact</Link>
                   <p><MdKeyboardArrowDown/></p>
+                </li>
+                <li className='flex gap-2 items-center cursor-pointer p-3 border-b border-[#ececec] '>
+                  <p className='border border-brand rounded-full px-2 py-1 bg-brand text-xs absolute bottom-27 right-25 lg:right-8'>
+                  {
+                   cartData.length
+                  }
+                 </p>
+                  <p className='hover:text-brand transition'><FaCartArrowDown /></p>
+                  <Link to="/cart" className='hover:text-brand transition'>Your cart</Link>
                 </li>
               </ul>
            </div>
@@ -230,8 +234,9 @@ const Navigation = () => {
         } 
         <p className='cursor-pointer text-lg'><IoIosArrowDropdown /></p>
       </div>
+      {/* desktop navbar */}
       <div>
-        <ul className='flex gap-8 text-lg text-primary font-'>
+        <ul className='flex gap-8 text-lg text-primary'>
           <li>
             <Link className='hover:text-brand transition'>Deals</Link>
           </li>
@@ -254,10 +259,11 @@ const Navigation = () => {
             <Link className='hover:text-brand transition'>Pages </Link>
           </li>
           <li>
-            <Link className='hover:text-brand transition'>Contact</Link>
+            <Link to="/contact" className='hover:text-brand transition'>Contact</Link>
           </li>
         </ul>
       </div>
+      {/* desktop navbar */}
       <div className='flex ml-auto gap-3 items-center'>
         <div>
          <p className='text-4xl'>< FaHeadphones/></p>

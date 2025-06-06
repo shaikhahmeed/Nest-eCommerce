@@ -28,8 +28,7 @@ const ShopDeals = () => {
             <ShopDealsItems/>
             <ShopDealsItems/>    
         </div>
-        <div className='flex md:hidden flex-col gap-24'>
-            <ShopDealsItems/>
+        <div className='flex md:hidden flex-col mb-60'>
             <ShopDealsItems/>
         </div>
         </div>

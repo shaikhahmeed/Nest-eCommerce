@@ -19,7 +19,6 @@ const Login = () => {
 
    const handlelogin=async(e)=>{
     e.preventDefault();
-      // localStorage.setItem('userData',JSON.stringify(logedUserInfo));
 
     const options = {
       method: 'POST',

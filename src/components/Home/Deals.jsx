@@ -22,14 +22,13 @@ const Deals = () => {
                 </ul>
                </div>
         </div>
-        <div className='hidden md:flex'>
+        <div className='hidden lg:flex'>
             <DealsItem/>
             <DealsItem/>
             <DealsItem/>
             <DealsItem/>
         </div>
-        <div className='flex md:hidden flex-col gap-24'>
-            <DealsItem/>
+        <div className='block lg:hidden md:flex'>
             <DealsItem/>
         </div>
         </div>

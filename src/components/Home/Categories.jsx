@@ -33,8 +33,8 @@ const Categories = () => {
          const { data } =await axios.request(options);
       setCategoryList(data.data.categories);
       } catch (error) {
-  console.error(error);
-} 
+         console.error(error);
+      } 
          })()
          
       },[])
@@ -86,7 +86,7 @@ const Categories = () => {
                 </ul>
                </div>
             </div>
-            <div className='pt-11'>
+            <div className='pt-11 hidden md:block'>
             <Slider {...settings}>
                {
                   categoryList.map((item)=>(
@@ -94,6 +94,12 @@ const Categories = () => {
                   ))
                }
             </Slider>
+            </div>
+            <div className='pt-11 flex md:hidden'>
+                     <CategoryItems/>
+                     <CategoryItems/>
+                     <CategoryItems/>
+                     <CategoryItems/>
             </div>
         </div>
     </section>

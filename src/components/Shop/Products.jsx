@@ -33,7 +33,7 @@ try {
             <div>
               <div className='flex justify-between'>
                 <p className='text-primary text-lg'>We found <span className='text-brand'>{productList.length}</span> items for you!</p>
-                <div className='flex p-2 border-2 border-primary rounded-2xl items-center gap-0.5 text-primary text-lg cursor-pointer'>
+                <div className='hidden md:flex p-2 border-2 border-primary rounded-2xl items-center gap-0.5 text-primary text-lg cursor-pointer'>
                   <FiBox/>
                   <p>Show:</p>
                   <select name="" id="">
@@ -45,7 +45,7 @@ try {
                 </div>
               </div>
             </div>
-          <div className='grid grid-cols-6 gap-4 mt-14'>
+          <div className='grid grid-cols-1 md:grid-cols-6 gap-4 mt-14'>
             {
               productList.map((item)=>(
                 <ProductItem key={item.id} data={item}/>
